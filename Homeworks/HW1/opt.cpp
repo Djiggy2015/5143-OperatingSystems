@@ -187,7 +187,7 @@ void cache(){
 void openmp(){
   
   // long int size = 32768; This one was too large for me to run
-  long int size = 2084;
+  long int size = 16384;
   int min = 256;
   
   ofstream myfile;
@@ -252,7 +252,7 @@ void openmp(){
 
 int main(){
   
-  //cache();
+  cache();
   
   openmp();
   
