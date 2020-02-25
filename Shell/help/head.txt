@@ -1,0 +1,25 @@
+NAME
+
+		head - output the first part of files
+
+SYNOPSIS
+
+		head [OPTION] [FILE]
+
+DESCRIPTION
+
+	Print the first 10 lines of each FILE to standard output.  With more
+       than one FILE, precede each with a header giving the file name.
+
+       With no FILE, read standard input.
+
+
+OPTIONS
+
+		-n 
+            display the first few lines of a file
+
+EXAMPLE
+
+        head -n 30 doc.txt
+            prints the first 30 lines of doc.txts

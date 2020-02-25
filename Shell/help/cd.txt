@@ -1,0 +1,26 @@
+NAME         
+
+       cd - change the working directory
+
+SYNOPSIS         
+
+       cd [DIRECTORY]
+
+DESCRIPTION         
+
+       Change the shell working directory.
+       
+       Change the current directory to DIR.  The default DIR is the value of the
+       HOME shell variable.
+	
+OPTIONS
+		
+       cd ~ 
+              change the working directory to the home directory
+       cd .. 
+              change the working directory to the parent directory
+
+EXAMPLE       
+
+       cd c:/
+              changes diectory to c:/

@@ -1,0 +1,18 @@
+NAME
+
+		chmod
+
+SYNOPSIS
+
+		chmod [FILE] [INT](000 - 777)
+
+DESCRIPTION
+
+		The chmod command modifies the mode bits and the extended access control
+		lists (ACLs) of the specified files or directories. The mode can be
+		defined numerically.
+
+EXMAPLE
+
+		chmod file 755
+			changes file mode to rwx r-x r-x

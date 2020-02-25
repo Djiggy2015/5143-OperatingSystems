@@ -1,0 +1,13 @@
+./
+../
+.git/
+.gitignore
+__pycache__/
+bees.txt
+cmd_pkg/
+getCmds.py
+headTailtest.txt
+OperatingSystem.txt
+README.md
+shell.py*
+test.txt

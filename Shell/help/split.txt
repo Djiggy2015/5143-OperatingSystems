@@ -1,0 +1,24 @@
+NAME
+
+		split - split a file into pieces
+
+SYNOPSIS
+
+        split [OPTION] [FILE]
+
+DESCRIPTION
+
+		splits a file into multiple smaller, multiple files 
+
+OPTIONS
+
+		-b
+            Create smaller files byte_count bytes in length
+        -l
+            Create smaller files n lines in length
+
+EXAMPLE 
+
+        split -l 100 bee.txt
+            split bee.txt into X amount of files, each 100 lines long
+

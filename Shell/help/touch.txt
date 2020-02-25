@@ -1,0 +1,24 @@
+NAME
+
+		touch - Change file access and modification times. Creates a new file
+        if one doesn't already exist
+
+SYNOPSIS
+
+		touch [OPTION] [FILE]
+
+DESCRIPTION
+
+		Print the last 10 lines of each FILE to standard output.
+
+OPTIONS
+    
+        -m
+            change the modification time of the file
+        -a
+            change the access time of the file
+
+EXAMPLE
+
+        touch example.txt
+            creates example.txt in the current directory

@@ -1,0 +1,27 @@
+NAME
+
+		mv — move files
+
+SYNOPSIS
+
+		mv [SOURCE] [DEST]
+        mv [SOURCE] [DIRECTORY]
+
+DESCRIPTION
+
+		If the last argument names an existing directory, 'mv' moves the 
+        other given file into a file with the same name in that directory. 
+        Otherwise, if only two files are given, it renames the first as 
+        the second. 
+
+EXAMPLE
+
+        mv a1.txt a2.txt
+            renames a1.txt to a2.txt
+        
+        mv a1.txt c:/
+            moves a1.txt to c:/
+
+
+		
+

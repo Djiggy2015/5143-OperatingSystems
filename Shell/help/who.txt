@@ -1,0 +1,17 @@
+NAME
+
+		who - show who is logged on 
+
+SYNOPSIS
+
+		who
+
+DESCRIPTION
+
+		Lists users currently logged in
+
+EXAMPLE
+        who 
+            prints list of current users
+		
+

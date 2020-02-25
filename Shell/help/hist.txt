@@ -1,0 +1,18 @@
+NAME
+
+    !x - call command x from history
+
+SYNOPSIS
+
+		![INT]
+
+DESCRIPTION
+
+		Load command x from your history so you can run it again
+
+EXAMPLE
+
+        !23
+            calls command 23 from the history log
+		
+

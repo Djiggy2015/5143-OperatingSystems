@@ -1,0 +1,18 @@
+NAME
+
+		cp - copy files and directories
+
+SYNOPSIS
+
+		cp [FILE1] [FILE2]
+
+DESCRIPTION
+
+		Copy source (FILE1) to dest (FILE2). Dest file is created if it 
+        does not exists
+
+EXAMPLE
+        
+        cp this.txt that.exe
+            copies this.txt to that.txt
+

@@ -1,0 +1,23 @@
+NAME
+
+		grep — search a file for a pattern
+
+SYNOPSIS
+
+		grep [KEYWORD] [FILE]
+
+DESCRIPTION
+        
+       The grep utility shall search the input files, selecting lines
+       matching one or more patterns; the types of patterns are controlled
+       by the options specified.
+		
+OPTIONS
+
+		grep -l
+            only return file names where the word or pattern is found
+
+EXAMPLE 
+
+        grep bacon cookbook.txt 
+            searches cookbook.txt for 'bacon'

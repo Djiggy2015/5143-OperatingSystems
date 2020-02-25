@@ -1,0 +1,17 @@
+NAME
+
+		sort - sort lines of text files
+
+SYNOPSIS
+
+		sort [FILE]
+
+DESCRIPTION
+
+		Sort or merge records (lines) of text (and binary) files and print
+        results to output
+
+EXAMPLE
+
+		sort zyx.txt
+            returns the results of the sort to the console

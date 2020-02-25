@@ -1,0 +1,26 @@
+NAME
+
+		ls - list directory contents
+
+SYNOPSIS
+
+		ls [OPTION] [FILE]
+
+DESCRIPTION
+
+		List information about the FILEs in the current directory
+
+OPTIONS
+
+		-a
+            show hidden files
+        -l
+            long listing format
+        -h 
+            human readable format
+
+EXAMPLE
+
+        ls -a -l
+            Shows files, including hidden files, in the current directory
+            in a long list format

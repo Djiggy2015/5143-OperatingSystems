@@ -1,0 +1,19 @@
+NAME
+
+		mkdir - make directories
+
+SYNOPSIS
+
+		mkdir [DIRECTORY]
+
+DESCRIPTION
+
+		Create the DIRECTORY, if it does not already exist.
+
+EXAMPLE
+
+        mkdir c:/users/bob/funStuff
+            makes a directory called funStuff in c:/users/bob
+
+		
+

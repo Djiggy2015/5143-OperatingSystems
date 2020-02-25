@@ -1,0 +1,20 @@
+NAME
+
+		less - Display a file a page at a time
+
+SYNOPSIS
+
+		less [FILE]
+
+DESCRIPTION
+
+		Allows the user to read in a large file in pieces.
+        They can either choose to advance the file line by line or advance
+        it by a "page" or terminal size.
+
+EXAMPLE
+
+        less talk.txt
+            prints a page of talk.txt
+
+

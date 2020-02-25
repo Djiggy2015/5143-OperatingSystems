@@ -1,0 +1,14 @@
+NAME
+
+		history - History log
+
+SYNOPSIS
+
+		history
+
+DESCRIPTION
+
+		Displays a numbered list of all commands ever entered in the shell
+
+		
+
