@@ -1,3 +1,6 @@
+##################################################
+#                  THE SERVER                    #
+##################################################
 import socket
 import threading
 import random
@@ -17,8 +20,8 @@ def createrand():
 
     return random.randint(low, high)
 
-# This is an external object that will deal with
-# the key
+# These are external objects that will deal with
+# the key and deal with results.
 m = mutex()
 w = win()
 
@@ -29,7 +32,6 @@ class network:
     SERVER = socket.gethostbyname(socket.gethostname())
     ADDR = (SERVER, PORT)
     FORMAT = 'utf-8'
-    DISCONNECT_MESSAGE = "D"
     server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 # Try binding the host and port to the socket server
@@ -43,23 +45,22 @@ except socket.error as e:
 def handle_client(conn, addr, value):
     print(f"[NEW CONNECTION] {addr} connected.")
 
+    # Receive the first message from a client and tell them whether
+    # they can guess or not.
     connected = True
     while connected:
         msg = conn.recv(64).decode(network.FORMAT)
-        if msg == network.DISCONNECT_MESSAGE or w.winner == True:
-            connected = False
-            conn.send("2".encode(network.FORMAT))
         print(f"[{addr}] {msg}")
 
-        if m.getkey() == True and w.winner == False:
-            m.falsekey()
+        # Add some randomness to getting a chance to guess
+        m.randomness()
+
+        if m.getkey() == True and w.winner == False and m.getcrit() == False:
+            m.inuse()
             conn.send("y".encode(network.FORMAT))
 
             msg = conn.recv(64).decode(network.FORMAT)
 
-            if msg == network.DISCONNECT_MESSAGE or w.winner == True:
-                connected = False
-                conn.send("2".encode(network.FORMAT))
             print(f"[{addr}] {msg}")
 
             if int(msg) > value:
@@ -74,7 +75,7 @@ def handle_client(conn, addr, value):
                 connected = False
                 w.winnerfound(addr)
 
-            m.returnkey()
+            m.notinuse() # Set the critical boolean to false (not in use)
 
 
 
@@ -82,8 +83,11 @@ def handle_client(conn, addr, value):
             conn.send("n".encode(network.FORMAT))
             if w.winner == True:
                 conn.send("2".encode(network.FORMAT))
+                connected = False
 
-    finalmess = "The winner is " + str(w.client)
+    # After the game is over, send one final message to all the clients
+    # telling them who the winner is.
+    finalmess = "The winner is " + str(w.client) + ". The number was: " + str(value)
     conn.send(finalmess.encode(network.FORMAT))
     conn.close()
 
