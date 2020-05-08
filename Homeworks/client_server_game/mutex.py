@@ -1,3 +1,8 @@
+##########################################################
+#             Critical Section Control Classes           #
+##########################################################
+
+import random
 # This is a really simple version of dealing with a critical 
 # section. The server and only the server will create an object
 # of this class. The server will then look at the condition of the
@@ -8,15 +13,33 @@ class mutex():
     def __init__(self):
         self.key = True
         self.winner = False
+        self.critical = False
+        random.random()
 
+    # Accessor method
     def getkey(self):
         return self.key
 
-    def falsekey(self):
-        self.key = False
+    # Another accessor method
+    def getcrit(self):
+        return self.critical
 
-    def returnkey(self):
-        self.key = True
+    # Mutator methods
+    def inuse(self):
+        self.critical = True
+
+    def notinuse(self):
+        self.critical = False
+
+    # Add some randomness to server availability
+    def randomness(self):
+        value = random.randint(1, 100)
+
+        # One in four chance the server won't be available
+        if value > 25:
+            self.key = True
+        else:
+            self.key = False
 
 # This class will be used to stop the other clients once a winner
 # has been found.
