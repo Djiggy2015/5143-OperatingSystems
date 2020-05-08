@@ -1,3 +1,4 @@
+# Random add/sub client
 import socket
 import threading
 import random
@@ -6,7 +7,7 @@ import time
 HEADER = 64
 PORT = 5050
 FORMAT = 'utf-8'
-DISCONNECT_MESSAGE = "!DIS"
+
 num = "0"
 guess = 0
 
@@ -16,19 +17,35 @@ client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 client.connect(ADDR)
 
 def access(guess, num):
-    while guess != -1 and guess != 2:
-        msg = "lock"
+    while guess != -1 and num != 2:
+        msg = "Available?"
         message = msg.encode(FORMAT)
  
         client.send(message)
         status = client.recv(2048).decode(FORMAT)
+        print(status)
 
         if status == "y":
             num = send(guess, num)
             guess = randguess(guess, num)
+
+        # In case the server sends 2 to this variable
+        if status == "2":
+            break
         
         else:
             print("Waiting...")
+
+    finalmess = client.recv(64).decode(FORMAT)
+
+    # If this client wins, print out a win message.
+    if guess == -1:
+        print("YOU WIN!")
+
+    # Else print out the winner's address. (Not a good idea online but this is a local network.)
+    else:
+        print("YOU LOSE!")
+        print(finalmess)
 
 
 def send(guess, num):
