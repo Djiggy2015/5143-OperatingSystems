@@ -1,3 +1,4 @@
+# Binary Search Client
 import socket
 import time
 import sys
@@ -5,7 +6,7 @@ import sys
 HEADER = 64
 PORT = 5050
 FORMAT = 'utf-8'
-DISCONNECT_MESSAGE = "!DIS"
+
 num = "0"
 
 # Numbers that will be used in binary search. Since the range picked
@@ -15,7 +16,8 @@ high = 2147483647
 low = 0
 count = 0
 
-SERVER = socket.gethostbyname(socket.gethostname())
+# Load up the necessary data to connect to the server.
+SERVER = socket.gethostbyname(socket.gethostname()) 
 ADDR = (SERVER, PORT)
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 client.connect(ADDR)
@@ -25,7 +27,7 @@ client.connect(ADDR)
 # then just keep trying and print "waiting" to the screen.
 def access(data, num):
     while data[0] != -1 and data[0] != 2:
-        msg = "lock"
+        msg = "Available?"
         message = msg.encode(FORMAT)
 
         client.send(message)
@@ -38,9 +40,16 @@ def access(data, num):
         else:
             print("Waiting...")
 
-    msg = "D"
-    message = msg.encode(FORMAT)
-    client.send(message)
+    finalmess = client.recv(64).decode(FORMAT)
+
+    # If this client wins, print out a win message.
+    if data[0] == -1:
+        print("YOU WIN!")
+
+    # Else print out the winner's address. (Not a good idea online but this is a local network.)
+    else:
+        print("YOU LOSE!")
+        print("The winner was address: ", finalmess)
 
 # Send to the server what you think the number is. This function will
 # return either -1, 0, or 1. This value will be used to determine how
