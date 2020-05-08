@@ -4,7 +4,7 @@
 <strong> Date: </strong> 5/8/2020<br><br>
 <strong> How to run: </strong>To run this game, first start up the server in a python compiler or the command line. If command line is used,
 type python server.py. Once the server is running, you may run the client programs through a different command line window by the 
-command: python clientname (No parameters are necessary). If you would like to run multiple clients at once, then open multiple
+command: python client'sname.py (No parameters are necessary). If you would like to run multiple clients at once, then open multiple
 command line windows and run a different client on each. The client's code will automatically finish once a winner has been found.
 However, the server will continue to run and must be stopped manually. <br><br>
 <strong> Development Platform: </strong>This program was developed on a Windows 10 Operating system using Python and the Visual Studio Code 
