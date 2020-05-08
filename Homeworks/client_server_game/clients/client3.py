@@ -1,3 +1,4 @@
+# Search by tens client
 import socket
 import time
 import sys
@@ -5,7 +6,6 @@ import sys
 HEADER = 64
 PORT = 5050
 FORMAT = 'utf-8'
-DISCONNECT_MESSAGE = "!DIS"
 
 # Initial Variables
 guess = 1
@@ -36,7 +36,18 @@ def access(guess_ten, num):
         else:
             print("Waiting...")
 
-# Send the server what you think the number is.
+    finalmess = client.recv(64).decode(FORMAT)
+
+    # If this client wins, print out a win message.
+    if guess_ten[0] == -1:
+        print("YOU WIN!")
+
+    # Else print out the winner's address. (Not a good idea online but this is a local network.)
+    else:
+        print("YOU LOSE!")
+        print(finalmess)
+
+# Send to the server what you think the number is.
 def send(guess, num):
     msg = str(guess)
     message = msg.encode(FORMAT)
@@ -48,8 +59,8 @@ def send(guess, num):
 
 # Beginning with the number 1, start by adding 1000000000 until the number
 # is too high, then bring it back down. This will tell you the 1^n place
-# of the server's number. Continue this process until the number has been 
-# found.
+# of the server's number. Then move right one tens place and repeat until
+# the number has been found.
 def searchbytens(guess_ten, num):
     # If the number is greater, then lower it back down
     # and reduce the power of tens by 1.
@@ -65,7 +76,7 @@ def searchbytens(guess_ten, num):
         print(guess_ten[0])
 
     else:
-        print("The number is: ", guess)
+        print("The number is: ", guess_ten[0])
         guess_ten[0] = -1
 
 
