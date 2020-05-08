@@ -2,6 +2,7 @@
 
 <strong>Author:</strong> Matt Stanley<br><br>
 <strong> Date: </strong> 5/8/2020<br><br>
+<strong> Contributions: </strong> Matt Stanley - He did the whole thing. <br><br>
 <strong> How to run: </strong>To run this game, first start up the server in a python compiler or the command line. If command line is used,
 type `python server.py `. Once the server is running, you may run the client programs through a different command line window by the 
 command: `python client'sname.py` (No parameters are necessary). If you would like to run multiple clients at once, then open multiple
