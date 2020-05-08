@@ -7,7 +7,7 @@ import time
 HEADER = 64
 PORT = 5050
 FORMAT = 'utf-8'
-DISCONNECT_MESSAGE = "!DIS"
+
 num = "0"
 guess = 0
 
